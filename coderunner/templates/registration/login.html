@@ -1,0 +1,33 @@
+{% extends "registration/auth_base.html" %}
+
+{% block auth_content %}    
+    <div class="form1">
+        <center>
+            <h3>Sign in</h3>
+            <p>Continue to CODERUNNER</p>
+            <br>
+            <div>
+                <form action="" method="post">
+                    {%csrf_token%}
+
+                    {% if form.errors %}
+                        <div class="form-group has-errors text-danger small">
+                              Please check your username or password
+                        </div>
+                    {% endif %}
+
+                    {% for field in form %}
+                        <div class="form-group">
+                          {{field}}
+                        </div>
+                    {% endfor %}
+                    <button class="btn btn-lg btn-primary" style="width:100%">Next</button>
+                </form>
+                <p>Forgot username/password? <a href="{% url 'password_reset' %}">Reset</a></p>
+                <p>
+                    Not have an account yet? <a href="{% url 'coderunner:signup' %}">REGISTER</a>
+                </p>
+            </div>
+        </center>
+    </div>
+{% endblock auth_content %}

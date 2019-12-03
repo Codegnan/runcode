@@ -1,0 +1,21 @@
+def is_palindrome(s):
+    # Calling reverse function 
+	rev = reverse(s) 
+
+	# Checking if both string are equal or not 
+	if (s == rev): 
+		return True
+	return False
+
+def reverse(s): 
+	return s[::-1] 
+
+
+# Driver code 
+s = input()
+ans = is_palindrome(s) 
+
+if ans == 1: 
+	print("palindrome") 
+else: 
+	print("not palindrome") 

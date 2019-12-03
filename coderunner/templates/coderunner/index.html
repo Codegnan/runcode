@@ -1,0 +1,94 @@
+{% extends "coderunner/base.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-9" style="padding-top: 35px;">
+            <p class="heading">Latest published questions</p>
+            {% if questions %}
+            {% for question in questions %}
+                <div class="shadow no-textarea popout">
+                    <div class="col-lg-10" style="font-size:10px">
+                        <p style="font-size:16px">{{ question.question_text }}</p>
+                            Author: {{ question.author.username }}
+                            /
+                            Posted on: {{ question.published_on }}
+                            / 
+                        {% if question.times_submitted > 0 %}
+                            Submitted {{ question.times_submitted }} time(s)
+                        {% else %}
+                            Be the first to submit a solution
+                        {% endif %}
+                    </div>
+
+                    <div class="col-lg-2">
+                        {% if user.username == question.author.username %}
+                            <a href="{% url 'coderunner:modify_question' question.id %}" style="color: #002659;">
+                                <button class="btn">M o d i f y</button>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'coderunner:details' question.id %}" style="color: #002659;">
+                                <button class="btn">S o l v e</button>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div> 
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="col-lg-3">
+            <div id="content-related">
+                <div class='shadow_detail'>
+                    <p class="heading">User details</p>
+                    {# <br> #}
+                    <div>
+                        Date joined:
+                        <div style="position: relative;float: right;">
+                            {{ user.date_joined.date }}
+                        </div>
+                    </div>
+                    {# <br> #}
+                    <div>
+                        Last login:
+                        <div style="position: relative;float: right;">
+                            {{ user.last_login.date }}
+                        </div>
+                    </div>
+                    {# <br> #}
+                    <div>
+                        Problems solved:
+                        <div style="position: relative;float: right;">
+                            {{ submissions|length }}
+                        </div>
+                    </div>
+                    <div>
+                        Score:
+                        <div style="position: relative;float: right;">
+                            {{ user.userprofile.score }}
+                        </div>
+                    </div>
+                    <div>
+                        Can I publish:
+                        <div style="position: relative;float: right;">
+                            {% if publish_perm %}
+                                Yes
+                            {% else %}
+                                No
+                                <a href="#" title="After scoring 20 Publish button will appear automatically">
+                                    <i class="fa fa-info-circle"></i>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock content %}

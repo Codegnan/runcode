@@ -1,0 +1,48 @@
+{% load staticfiles %}
+
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static '/coderunner/css/style.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>
+        {% if title %}
+            {{ title }}
+        {% elif app.title %}
+            {{ app.title }}
+        {% else %}
+            {{ app.logo }}
+        {% endif %}
+    </title>
+</head>
+
+<body class="theme-authbase">
+    <div class="authbase-holder">
+        <div class="authbase-holder-header">
+            {{app.logo}}
+        </div>
+
+        <br><br>
+        <div class="container" style="min-height: 65%;">
+            <div class="row">
+                <div class="col-lg-2" id="auth_content">
+                </div>
+                <div class="col-lg-8">
+                    {% block auth_content %}
+
+                    {% endblock auth_content %}
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+        <div class="authbase-holder-footer">
+            <a href="https://www.github.com/AyushSenapati/CodeRunner">
+                <i class="fa fa-github"></i>
+            </a>
+        </div>
+    </div>
+</body>

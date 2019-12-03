@@ -1,0 +1,191 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.theme {
+    background-color: white;
+}
+
+#holder {
+    min-height: 100%;
+    position: relative;
+}
+
+header {
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #337ab7;
+    overflow: hidden;
+}
+
+#logo {
+    padding-left: 35px;
+    padding-top: 15px;
+    font-size: 30px;
+}
+
+#user-tools {
+    float: right;
+    padding: 0;
+    margin: 0 0 0 20px;
+    display: inline;
+    width: auto;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-right: 35px;
+    padding-bottom: 10px;
+    font: normal 10px verdana, sans-serif;
+}
+
+#user-tools a {
+    color: white;
+}
+
+#content {
+    height: 100%;
+    padding-bottom: 200px;  /* Should be equal to height of footer */
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+footer {
+    color: gray;
+    height:100px;
+    width:100%;
+    background: black;
+    position: absolute;
+    left:0;
+    bottom:0;
+    text-align: center;
+    font-size: 10px;
+}
+
+#content-main {
+    float: left;
+    min-width: 75%;
+    max-width: 75%;
+}
+
+#content-related {
+    
+    padding-left: 20px;
+    min-width: 25%;
+}
+
+.shadow_detail{
+    padding-top: 70px;
+}
+
+.shadow_detail p {
+    border-bottom: 2px solid #eaeaea;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-height: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+    background: white;
+    font-size: 16px;
+}
+
+.no-textarea {
+    padding: 20px;
+}
+
+.heading {
+    /*border-bottom: 2px solid #eaeaea;*/
+    font-size: 22px;
+}
+
+.btn
+{
+    width:130px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.question1
+{
+    font-size: 18px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 70%;
+    
+}
+
+.popout:hover {
+    /*font-size: 17px;*/
+    transition-duration: 0.2s;
+    transform: scale(1.01);   
+}
+
+.warning {
+    background: orange;
+}
+
+.CodeMirror {
+    border: 1px solid #eee;
+    min-height: 400px;
+    font-size: 16px;
+}
+
+
+/*
+AUTHBASE STYLE
+--------------
+*/
+
+.theme-authbase {
+    background-color: #337ab7;
+    height: 100%;
+}
+
+.authbase-holder {
+    min-height: 100%;
+    position: relative;
+}
+
+.authbase-holder-header {
+    padding-left:35px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.authbase-holder-footer {
+    padding-top:40px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.authbase-holder-footer a {
+    font-size: 34px;
+    color: black;
+}
+
+.form1 {
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    top: 30%;
+    background-color: white;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.notify_user {
+    padding: 20px;
+    box-shadow: 0px 4px 15px 0px #4f4f4f;
+    position: relative;
+    background-color: white;
+    font-size: 20px;
+    min-width: 100%;
+    margin: 0 auto;
+}

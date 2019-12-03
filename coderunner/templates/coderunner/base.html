@@ -1,0 +1,91 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+    {% if title %}
+        {{ title }}
+    {% elif app.title %}
+        {{ app.title }}
+    {% else %}
+        {{ app.logo }}
+    {% endif %}
+  </title>
+
+    <link rel="stylesheet" type="text/css" href="{% static "coderunner/css/style.css" %}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% block header %}
+        
+    {% endblock header %}
+</head>
+
+<body class='theme'>
+    {# Holder of Header, content[body] and footer divs #}
+    <div id='holder'>
+        {# Header #}
+        <header>
+            <div id="logo">{{app.logo}}</div>
+            <div id='user-tools'>
+                {% if user.is_authenticated %}
+                    Welcome,
+                    <strong>{{ user.username }}</strong>
+                    .
+                    <a href="{% url 'coderunner:home' %}">
+                        <i class="fa fa-home" style="font-size: 16px"></i>
+                    </a>
+                    {% if publish_perm %}
+                    .
+                        <a href="{% url 'coderunner:publish_question' %}">Publish</a>
+                    {% endif %}
+                    .
+                    <a href="{% url 'password_change' %}">Change password</a>
+                    /
+                    <a href="{% url 'logout' %}">
+                        <span class="glyphicon glyphicon-log-out"></span> Logout
+                    </a>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                    or
+                    <a href="{% url 'coderunner:signup' %}">Signup</a>
+                {% endif %}
+            </div>
+        </header>
+
+        {# Body #}
+        <div id="content">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% block content %}
+                
+            {% endblock content %}
+        </div>
+
+        {# Footer #}
+        <footer>
+            <a href="https://www.github.com/AyushSenapati/CodeRunner">
+                <i class="fa fa-github" style="font-size: 25px; padding-top:20px;"></i>
+            </a>
+            <p style="padding-top:5px;">
+                <i class="fa fa-copyright" style="font-size:11px;"></i>
+                 Copy right 2018, 
+                 <strong>
+                    {{ app.logo }} <i class="fa fa-code" style="font-size: 12px;"></i>
+                </strong>
+                <br>
+                Powered by <strong>Django</strong>
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
