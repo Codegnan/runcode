@@ -12,7 +12,7 @@
 # coderunner/urls.py
 # coderunner/views.py
 # manage.py
-Django == 2.1.2
+Django == 2.2.13
 
 djangorestframework == 3.8.2
 
